@@ -10,14 +10,9 @@ namespace EnumerableTest
         static void Main(string[] args)
         {
             Console.WriteLine("Enumerable Test :\n");
-            enumableTest();
-            Console.ReadLine();
-        }
 
-        static void enumableTest()
-        {
             RandomList t = new RandomList();
-            Console.WriteLine("TestList foreach ver:");
+            Console.WriteLine("RandomList foreach ver:");
             foreach ( double i in t ) {
                 Console.WriteLine(i);
             }
@@ -25,7 +20,7 @@ namespace EnumerableTest
             Console.WriteLine("");
 
 
-            Console.WriteLine("TestList GetEnumerator ver:");
+            Console.WriteLine("RandomList GetEnumerator ver:");
             var tor = t.GetEnumerator();
             while ( tor.MoveNext() ) {
                 double i  = tor.Current;
@@ -34,10 +29,10 @@ namespace EnumerableTest
             Console.WriteLine("");
 
 
-            List<int> list = new List<int>(){1,2,4,3,6,5};
+            List<int> list = new List<int>() { 1, 2, 4, 3, 6, 5 };
             IEnumerable<int> ie = list;
-            
-            Console.WriteLine("IEnumerable foreach ver:");            
+
+            Console.WriteLine("IEnumerable foreach ver:");
             foreach ( int i in ie ) {
                 Console.WriteLine(i);
             }
@@ -65,6 +60,8 @@ namespace EnumerableTest
                 Console.WriteLine(list[i]);
             }
             Console.WriteLine("");
+
+            Console.ReadLine();
         }
     }
 }
