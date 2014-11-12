@@ -5,11 +5,13 @@ using System.Text;
 
 namespace EnumerableTest
 {
-    class RandomList : IEnumerable<double>, IEnumerator<double> 
+    class RandomList : IEnumerable<double>, IEnumerator<double>
     {
         Random rand = new Random();
         double current = 1;
         double min = 0.2;
+
+
 
         public IEnumerator<double> GetEnumerator()
         {
@@ -23,14 +25,15 @@ namespace EnumerableTest
 
         public double Current
         {
-            get {
-                current = rand.NextDouble();
+            get
+            {
                 return current;
             }
         }
 
         public void Dispose()
         {
+            
         }
 
         object System.Collections.IEnumerator.Current
@@ -40,7 +43,12 @@ namespace EnumerableTest
 
         public bool MoveNext()
         {
-            return current > min;
+            if ( current > min ) {
+                current = rand.NextDouble();
+                return true;
+            } else {
+                return false;
+            }
         }
 
         public void Reset()
